@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'tp04-beaudeux-charline';
+  title = 'TP04 - Catalogue de produits avec panier';
 }
