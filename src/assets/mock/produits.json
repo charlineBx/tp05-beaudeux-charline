@@ -3,8 +3,8 @@
   { "titre":  "Specialized Dolce Elite", "description":"Vélo debutant route","prix": 1550.5, "qte": 2 ,"image": "assets/images/specialized-dolce-elite.jpg"},
   { "titre": "Giant Talon 0","description":"VTT", "prix": 950, "qte": 1 ,"image": "assets/images/talon-29-0-giant.jpg"},
   { "titre":  "Liv Amiti 3 E+", "description":"Vélo taff","prix": 2400.5, "qte": 3,"image": "assets/images/amiti-eplus.jpg" },
-  { "titre":  "Liv Avail Advanced 1", "description":"Vélo de rando/course","prix": 3000, "qte": 5, "image": "assets/images/avail-advanced-1.jpg" },
-  { "titre": "Specialized Dolce Elite","description":"Vélo de rando/course", "prix": 1550.5, "qte": 2 ,"image": "assets/images/specialized-dolce-elite.jpg"},
-  { "titre":  "Giant Talon 0", "description":"Vélo de rando/course","prix": 950, "qte": 1 ,"image": "assets/images/talon-29-0-giant.jpg"},
-  { "titre":  "Liv Amiti 3 E+","description":"Vélo de rando/course", "prix": 2400.5, "qte": 3,"image": "assets/images/amiti-eplus.jpg" }
+  { "titre": "Liv Avail Advanced 1","description":"Vélo de rando/course", "prix": 3000, "qte": 5, "image": "assets/images/avail-advanced-1.jpg" },
+  { "titre":  "Specialized Dolce Elite", "description":"Vélo debutant route","prix": 1550.5, "qte": 2 ,"image": "assets/images/specialized-dolce-elite.jpg"},
+  { "titre": "Giant Talon 0","description":"VTT", "prix": 950, "qte": 1 ,"image": "assets/images/talon-29-0-giant.jpg"},
+  { "titre":  "Liv Amiti 3 E+", "description":"Vélo taff","prix": 2400.5, "qte": 3,"image": "assets/images/amiti-eplus.jpg" }
 ]
