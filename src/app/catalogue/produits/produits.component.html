@@ -12,13 +12,14 @@
 <hr />
 <br />
 
-<div id="container" *ngIf="produits$ | async as produits" style="width: 80%;margin-left: 10%;">
-  <div class="card" style="width: 18rem;" id="catalogue" *ngFor="let p of produits | filter: recherche">
-    <div class="card-header" style="width: 18rem;">{{ p.ref }}</div>
+<div class="row row-cols-1 row-md-5" id="container" *ngIf="produits$ | async as produits" style="width: 80%;margin-left: 10%;">
+  <div class="card mb-5 mx-2 p-0" style="width: 18rem;" id="catalogue" *ngFor="let p of produits | filter: recherche">
+    <div class="card-header" style="width: 18rem;">{{ p.titre }}</div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">{{ p.designation }}</li>
-      <li class="list-group-item">{{ p.prix }}</li>
+      <li class="list-group-item">{{ p.description }}</li>
+      <li class="list-group-item">{{ p.prix }}€</li>
       <li class="list-group-item">{{ p.qte }}</li>
+      <li class="list-group-item"><img class="car-img-top" style="width: 100%;" [src]="p.image"></li>
     </ul>
     <div class="card-footer"><button class="btn btn-dark" (click)="addProduitPanier(p)">Add</button></div>
   </div>

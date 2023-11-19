@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Select } from '@ngxs/store';
+import { Observable } from 'rxjs';
+import { ProduitState } from '../shared/states/produit-state';
 
 @Component({
   selector: 'app-tetiere',
@@ -12,5 +14,7 @@ export class TetiereComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  @Select(ProduitState.getNbProduits) nb$: Observable<number>;
 
 }

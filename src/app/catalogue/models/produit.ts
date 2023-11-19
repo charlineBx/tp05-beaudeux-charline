@@ -1,13 +1,15 @@
 export class Produit {
-  ref: string;
-  designation: string;
+  titre: string;
+  description: string;
   prix: number;
   qte: number;
+  image: string;
 
   constructor() {
-    this.ref = '';
-    this.designation = '';
+    this.titre = '';
+    this.description = '';
     this.prix = 0;
     this.qte = 0;
+    this.image = '';
   }
 }

@@ -23,6 +23,11 @@ export class ProduitState{
       return state.produitsPanier;
     }
 
+    @Selector()
+    static getNbProduits(state: ProduitStateModel) {
+      return state.produitsPanier.length;
+    }
+
     @Action(AddProduit)
   add(
     { getState, patchState }: StateContext<ProduitStateModel>,
@@ -42,7 +47,7 @@ export class ProduitState{
     const state = getState();
     patchState({
       produitsPanier: state.produitsPanier.filter(
-        (x) => !(payload.ref == x.ref )
+        (x) => !(payload.titre == x.titre )
       ),
     });
   }
