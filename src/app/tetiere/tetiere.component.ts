@@ -9,7 +9,7 @@ import { ProduitState } from '../shared/states/produit-state';
   styleUrls: ['./tetiere.component.css']
 })
 export class TetiereComponent implements OnInit {
-
+  title = 'TP04 - Catalogue de produits avec panier';
   constructor() { }
 
   ngOnInit() {

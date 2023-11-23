@@ -12,7 +12,7 @@
 <hr />
 <br />
 
-<div class="row row-cols-1 row-md-5" id="container" *ngIf="produits$ | async as produits" style="width: 80%;margin-left: 10%;">
+<div class="row row-cols-2 row-md-4" id="container" *ngIf="produits$ | async as produits" style="width: 80%;margin-left: 10%;">
   <div class="card mb-5 mx-2 p-0" style="width: 18rem;" id="catalogue" *ngFor="let p of produits | filter: recherche">
     <div class="card-header" style="width: 18rem;">{{ p.titre }}</div>
     <ul class="list-group list-group-flush">
