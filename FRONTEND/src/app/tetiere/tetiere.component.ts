@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { ProduitState } from '../shared/states/produit-state';
+import { ServiceConnexionService } from '../service-connexion.service';
 
 @Component({
   selector: 'app-tetiere',
@@ -10,9 +11,13 @@ import { ProduitState } from '../shared/states/produit-state';
 })
 export class TetiereComponent implements OnInit {
   title = 'TP04 - Catalogue de produits avec panier';
-  constructor() { }
+  cnxEnfant : boolean;
+  constructor(private serviceConnexion : ServiceConnexionService) { }
 
   ngOnInit() {
+    this.serviceConnexion.connexionClient$.subscribe((donnee)=>{
+      this.cnxEnfant = donnee;
+    });
   }
 
   @Select(ProduitState.getNbProduits) nb$: Observable<number>;

@@ -11,16 +11,14 @@
             <a class="nav-link active" [routerLink]="['/home']">Accueil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/catalogue']">Catalogue</a>
+            <a *ngIf="cnxEnfant" class="nav-link" [routerLink]="['/catalogue']">Catalogue</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/panier']">Panier ({{ nb$ | async }})</a>
+            <a *ngIf="cnxEnfant" class="nav-link" [routerLink]="['/panier']">Panier ({{ nb$ | async }})</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
-
-<!--<div class="card">Nombre de produits dans le panier : {{ nb$ | async }}</div>-->
 

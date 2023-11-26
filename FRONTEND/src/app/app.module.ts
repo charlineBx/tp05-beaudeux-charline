@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 
-
 import { TetiereComponent } from './tetiere/tetiere.component';
 import { FooterComponent } from './footer/footer.component';
 import { NgxsModule } from '@ngxs/store';

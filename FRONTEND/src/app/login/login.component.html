@@ -1,28 +1,11 @@
-<h1>Archi Web - Connexion backend</h1>
+<h4>Connexion :</h4>
 <label for="login">login : </label><input [(ngModel)]="login" /><br />
 <label for="password">password : </label
 ><input [(ngModel)]="password" type="password" /><br />
 <br />
-<button (click)="connexion()">Connexion</button>
+<button (click)="connexion()" >Envoyer</button>
 
 <hr />
 <div *ngIf="cnx">
-  Bonjour {{ nom }} - {{ prenom }}
-
-  <h2>Catalogue produits</h2>
-
-  <div class="row row-cols-2 row-md-4" *ngIf="produits$ | async as produits">
-    
-      <!--<div>{{ p.ref }} - {{ p.titre }} - {{ p.prix }} €</div>-->
-      <div class="card mb-5 mx-2 p-0" style="width: 18rem;" id="catalogue" *ngFor="let p of produits">
-        <div class="card-header" style="width: 18rem;">{{ p.titre }}</div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">{{ p.description }}</li>
-          <li class="list-group-item">{{ p.prix }}€</li>
-          <li class="list-group-item">{{ p.qte }}</li>
-          <li class="list-group-item"><img class="car-img-top" style="width: 100%;" [src]="p.image"></li>
-        </ul>
-      </div>
-    
-  </div>
+  <p>Bonjour {{ nom }} - {{ prenom }}</p>
 </div>
