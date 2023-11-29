@@ -1,10 +1,11 @@
-<h4>Connexion :</h4>
-<label for="login">login : </label><input [(ngModel)]="login" /><br />
-<label for="password">password : </label
-><input [(ngModel)]="password" type="password" /><br />
-<br />
-<button (click)="connexion()" >Envoyer</button>
-
+<div *ngIf="!cnx">
+  <h4>Connexion :</h4>
+  <label for="login">login : </label><input [(ngModel)]="login" /><br />
+  <label for="password">password : </label
+  ><input [(ngModel)]="password" type="password" /><br />
+  <br />
+  <button (click)="connexion()" >Envoyer</button>
+</div>
 <hr />
 <div *ngIf="cnx">
   <div class="container mt-4">
