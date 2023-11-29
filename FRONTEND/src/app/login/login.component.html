@@ -7,9 +7,22 @@
 
 <hr />
 <div *ngIf="cnx">
-  <p>Bonjour {{ nom }} - {{ prenom }}</p>
-  <p>Bonjour {{ login }} - {{ password }}</p>
-  <p>Bonjour {{ loginRecup }} - {{ passwordRecup }}</p>
-
+  <div class="container mt-4">
+    <h2>Compte client </h2>
+    <form>
+      <div class="form-group">
+        <label for="nom">Nom :</label>
+        <input type="text" class="form-control" id="nom" placeholder="{{nom}}">
+      </div>
+      <div class="form-group">
+        <label for="prenom">Prénom :</label>
+        <input type="text" class="form-control" id="prenom" placeholder="{{prenom}}">
+      </div>
+      <div class="form-group">
+        <label for="email">Email :</label>
+        <input type="email" class="form-control" id="email" placeholder="{{email}}">
+      </div>
+      <button type="submit" class="btn btn-primary" onclick="alert('Données modifiées')">Modifier</button>
+    </form>
+  </div>
 </div>
-<p>connexion : {{ cnx }} </p>

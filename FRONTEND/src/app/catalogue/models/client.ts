@@ -3,5 +3,6 @@ export class Client {
     prenom: string;
     login: string;
     password:string;
+    email : string;
   }
   

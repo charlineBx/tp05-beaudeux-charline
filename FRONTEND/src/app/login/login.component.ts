@@ -16,6 +16,7 @@ export class LoginComponent  {
   passwordRecup: string = '';
   nom: string = '';
   prenom: string = '';
+  email : string = '';
   cnx : boolean = false;
  
   produits$: Observable<Array<Produit>>;
@@ -28,8 +29,10 @@ export class LoginComponent  {
     this.catalogueService.loginClient(this.login, this.password).subscribe((c) => {
       this.nom = c.nom;
       this.prenom = c.prenom;
+      this.email = c.email;
       this.loginRecup = c.login;
       this.passwordRecup = c.password;
+
       this.cnx = (this.loginRecup === this.login && this.passwordRecup === this.password);
       this.serviceConnexion.setData(this.cnx);
     });
