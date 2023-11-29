@@ -35,7 +35,19 @@ export class LoginComponent  {
 
       this.cnx = (this.loginRecup === this.login && this.passwordRecup === this.password);
       this.serviceConnexion.setData(this.cnx);
+      this.serviceConnexion.setDataClient(c);
     });
 
+  }
+
+  ngOnInit() {
+    this.serviceConnexion.connexionClient$.subscribe((donnee)=>{
+      this.cnx = donnee;
+    });
+    this.serviceConnexion.donneesClient$.subscribe((c)=>{
+      this.nom = c.nom;
+      this.prenom = c.prenom;
+      this.email = c.email;
+    })
   }
 }
