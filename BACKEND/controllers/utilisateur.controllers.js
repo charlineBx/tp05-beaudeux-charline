@@ -17,8 +17,8 @@ exports.login = (req, res) => {
   // Test
   let pattern = /^[A-Za-z0-9]{1,20}$/;
   if (pattern.test(utilisateur.login) && pattern.test(utilisateur.password)) {
-
-        const uuid = uuidv4 ();
+    
+      const uuid = uuidv4 ();
         const utilisateur = {
           nom: "martin",
           prenom: "jean",
@@ -27,14 +27,12 @@ exports.login = (req, res) => {
           password : "toto",
           id : uuid
         };
-
         const user = {
           id: utilisateur.id,
           name: utilisateur.nom,
           email: utilisateur.email
         };
-      
-        
+
         let accessToken = generateAccessToken(user);
         res.setHeader('Authorization', `Bearer ${accessToken}`);
 
@@ -42,6 +40,8 @@ exports.login = (req, res) => {
 
       
         res.send(utilisateur);
+    
+       
     };    
 };
 

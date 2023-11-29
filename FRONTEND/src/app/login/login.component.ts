@@ -12,7 +12,8 @@ import { ServiceConnexionService } from '../service-connexion.service';
 export class LoginComponent  {
   login: string = '';
   password: string = '';
-
+  loginRecup: string = '';
+  passwordRecup: string = '';
   nom: string = '';
   prenom: string = '';
   cnx : boolean = false;
@@ -23,12 +24,15 @@ export class LoginComponent  {
   }
 
   connexion() {
-    this.cnx = true;
-    this.serviceConnexion.setData(this.cnx);
+
     this.catalogueService.loginClient(this.login, this.password).subscribe((c) => {
       this.nom = c.nom;
       this.prenom = c.prenom;
+      this.loginRecup = c.login;
+      this.passwordRecup = c.password;
+      this.cnx = (this.loginRecup === this.login && this.passwordRecup === this.password);
+      this.serviceConnexion.setData(this.cnx);
     });
-    
+
   }
 }
