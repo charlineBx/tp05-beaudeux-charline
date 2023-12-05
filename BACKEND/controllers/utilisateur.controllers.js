@@ -37,8 +37,7 @@ exports.login = (req, res) => {
         res.setHeader('Authorization', `Bearer ${accessToken}`);
 
         console.log (accessToken);
-
-      
+        
         res.send(utilisateur);
     
        
