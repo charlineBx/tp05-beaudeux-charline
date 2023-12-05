@@ -1,5 +1,6 @@
 <h1>Panier :</h1>
-<div class="card mb-2" style="width: 18rem;margin-left: 20px;" id="catalogue"  *ngFor="let p of liste | async">
+
+<div class="card mb-2 " style="width: 18rem;margin-left: 20px;" id="catalogue"  *ngFor="let p of liste | async">
     <div class="card-header" style="width: 18rem;">{{ p.titre }}</div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">{{ p.description }}</li>

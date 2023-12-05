@@ -6,11 +6,11 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'TP04 - Catalogue de produits avec panier';
+  title = 'Catalogue de produits avec panier et connexion';
   cnxParent: boolean = false;
   public recevoirDonneesCnx(donnees : boolean ){
     this.cnxParent = donnees;
-    console.log("coucou",this.cnxParent);
+    
   }
 }
   

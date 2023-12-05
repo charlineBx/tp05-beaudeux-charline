@@ -13,7 +13,9 @@ import { ProduitStateModel } from './produit-state-model';
     name: 'produitsPanier',
     defaults:{
         produitsPanier:[],
+        
     },
+    
 })
 
 @Injectable()

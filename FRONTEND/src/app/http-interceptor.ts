@@ -31,9 +31,9 @@ export class ApiHttpInterceptor implements HttpInterceptor {
           let tab: Array<String>;
           let enteteAuthorization = evt.headers.get('Authorization');
           if (enteteAuthorization != null) {
-            tab = enteteAuthorization.split(/Bearer\s+(.*)$/i);
+            tab = enteteAuthorization.split(/Bearer\s+(.*)$/i); //je recupere le jeton
             if (tab.length > 1) {
-              this.jwtToken = tab[1];
+              this.jwtToken = tab[1]; 
               console.log('Bearer récupéré : ' + this.jwtToken);
             }
           }

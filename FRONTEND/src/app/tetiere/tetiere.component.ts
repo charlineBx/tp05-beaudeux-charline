@@ -10,7 +10,7 @@ import { ServiceConnexionService } from '../service-connexion.service';
   styleUrls: ['./tetiere.component.css']
 })
 export class TetiereComponent implements OnInit {
-  title = 'TP04 - Catalogue de produits avec panier';
+  title = 'Catalogue de produits avec panier et connexion';
   cnxEnfant : boolean;
   constructor(private serviceConnexion : ServiceConnexionService) { }
 
