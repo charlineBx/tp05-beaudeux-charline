@@ -8,7 +8,11 @@ import { environment } from '../environments/environment';
 export class CatalogueService {
   constructor(private http: HttpClient) {}
   public getProduits(): Observable<Produit[]> {
-    return this.http.get<Produit[]>(environment.backendProduit);
+    console.log("test");
+   
+   const liste = this.http.get<Produit[]>(environment.backendProduit);
+   console.log(liste);
+   return liste;
   }
 
   public loginClient(login: string, password: string): Observable<Client> {

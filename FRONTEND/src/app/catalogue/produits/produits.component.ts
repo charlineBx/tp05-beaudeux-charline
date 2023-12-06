@@ -14,15 +14,31 @@ import { Store } from '@ngxs/store';
 export class ProduitsComponent implements OnInit {
   recherche: string = '';
   produits$: Observable<Produit[]>;
+  produitsCatalogue: Produit[] = [];
+  produitsFiltres: Produit[] = []; // Nouveau tableau pour les produits filtrés
 
-  constructor(private catalogueService: CatalogueService,private store:Store) {
-    this.produits$ = this.catalogueService.getProduits();
+  constructor(private catalogueService: CatalogueService, private store: Store) {
+    //this.produits$ = this.catalogueService.getProduits();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.catalogueService.getProduits().subscribe({
+      next: (data) => {
+        this.produitsCatalogue = data;
+        this.filterProducts(); // Appeler la fonction de filtrage lors de l'initialisation
+        console.log(data);
+      }
+    });
+  }
 
-  addProduitPanier(p:Produit): void{
+  // Fonction pour filtrer les produits en fonction de la recherche
+  filterProducts() {
+    this.produitsFiltres = this.produitsCatalogue.filter((produit: Produit) =>
+      produit.titre.toLowerCase().includes(this.recherche.toLowerCase())
+    );
+  }
+
+  addProduitPanier(p: Produit): void {
     this.store.dispatch(new AddProduit(p));
-
   }
 }
