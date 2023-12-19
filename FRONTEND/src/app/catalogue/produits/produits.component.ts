@@ -1,5 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnInit, Injectable, ViewChild, ElementRef } from '@angular/core';
+import { Observable , fromEvent, of } from 'rxjs';
+import {
+  map,
+  distinctUntilChanged,
+  debounceTime,
+  switchMap,
+  catchError,
+  isEmpty,
+} from 'rxjs/operators';
 import { CatalogueService } from '../catalogue.service';
 import { Produit } from '../models/produit';
 import { AddProduit } from 'src/app/shared/actions/produit-action';
@@ -13,29 +21,38 @@ import { Store } from '@ngxs/store';
 })
 export class ProduitsComponent implements OnInit {
   recherche: string = '';
+  searchField$: Observable<any>;
   produits$: Observable<Produit[]>;
-  produitsCatalogue: Produit[] = [];
-  produitsFiltres: Produit[] = []; // Nouveau tableau pour les produits filtrés
+  produitsCatalogue: Observable<Produit[]>;
+  produitsFiltres: Observable<Produit[]>; // Nouveau tableau pour les produits filtrés
+
+  @ViewChild('input', { static: true }) input: ElementRef ;
 
   constructor(private catalogueService: CatalogueService, private store: Store) {
-    //this.produits$ = this.catalogueService.getProduits();
   }
 
   ngOnInit() {
-    this.catalogueService.getProduits().subscribe({
-      next: (data) => {
-        this.produitsCatalogue = data;
-        this.filterProducts(); // Appeler la fonction de filtrage lors de l'initialisation
-        console.log(data);
-      }
-    });
-  }
+    this.produitsFiltres = this.catalogueService.getProduits();
+    if(this.input){
+      this.searchField$ = fromEvent(this.input.nativeElement, `input`);
+      this.produitsFiltres = this.searchField$.pipe(
+      map((event) => event.target.value),
+      debounceTime(300),
+      distinctUntilChanged(),
 
-  // Fonction pour filtrer les produits en fonction de la recherche
-  filterProducts() {
-    this.produitsFiltres = this.produitsCatalogue.filter((produit: Produit) =>
-      produit.titre.toLowerCase().includes(this.recherche.toLowerCase())
-    );
+      switchMap((term) =>
+        this.catalogueService.search(term).pipe(
+          catchError(() => {
+            return of([] as Produit[]);
+          })
+        )
+      )
+    )as Observable<Produit[]>;
+    }else{
+      this.produitsFiltres = this.catalogueService.getProduits();
+      
+    }
+    
   }
 
   addProduitPanier(p: Produit): void {
